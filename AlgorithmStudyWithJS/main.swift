@@ -5,23 +5,41 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 
-// 최댓값 (2562)
+//과제 안 내신 분..? (5597)
 import Foundation
 func solution() {
-    var maxNumber = 0
-    var maxNumberIndex = 0
-    for index in 1...9 {
-        let number = Int(readLine()!)!
-        if number > maxNumber {
-            maxNumber = number
-            maxNumberIndex = index
-        }
+    var rollBook = Array(repeating: false, count: 30)
+
+    (0..<28).forEach { _ in
+        let studentNumber = Int(readLine()!)!
+        rollBook[studentNumber-1] = true
     }
 
-    print(maxNumber)
-    print(maxNumberIndex)
+    rollBook.enumerated().forEach { (index, isAttend) in
+        if !isAttend {
+            print(index + 1)
+        }
+    }
 }
 solution()
+
+//// 최댓값 (2562)
+//import Foundation
+//func solution() {
+//    var maxNumber = 0
+//    var maxNumberIndex = 0
+//    for index in 1...9 {
+//        let number = Int(readLine()!)!
+//        if number > maxNumber {
+//            maxNumber = number
+//            maxNumberIndex = index
+//        }
+//    }
+//
+//    print(maxNumber)
+//    print(maxNumberIndex)
+//}
+//solution()
 
 // 최소, 최대(10818)
 //import Foundation
