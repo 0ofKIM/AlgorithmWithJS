@@ -5,23 +5,37 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 
-//과제 안 내신 분..? (5597)
+//나머지 (3052)
 import Foundation
 func solution() {
-    var rollBook = Array(repeating: false, count: 30)
-
-    (0..<28).forEach { _ in
-        let studentNumber = Int(readLine()!)!
-        rollBook[studentNumber-1] = true
-    }
-
-    rollBook.enumerated().forEach { (index, isAttend) in
-        if !isAttend {
-            print(index + 1)
+    var numberArray: [Int] = []
+    (0..<10).forEach { _ in
+        let number = Int(readLine()!)! % 42
+        if !numberArray.contains(number) {
+            numberArray.append(number)
         }
     }
+    print(numberArray.count)
 }
 solution()
+
+//과제 안 내신 분..? (5597)
+//import Foundation
+//func solution() {
+//    var rollBook = Array(repeating: false, count: 30)
+//
+//    (0..<28).forEach { _ in
+//        let studentNumber = Int(readLine()!)!
+//        rollBook[studentNumber-1] = true
+//    }
+//
+//    rollBook.enumerated().forEach { (index, isAttend) in
+//        if !isAttend {
+//            print(index + 1)
+//        }
+//    }
+//}
+//solution()
 
 //// 최댓값 (2562)
 //import Foundation
