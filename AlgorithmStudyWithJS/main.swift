@@ -20,6 +20,20 @@ func solution() {
 }
 solution()
 
+//나머지 (3052)
+//import Foundation
+//func solution() {
+//    var numberArray: [Int] = []
+//    (0..<10).forEach { _ in
+//        let number = Int(readLine()!)! % 42
+//        if !numberArray.contains(number) {
+//            numberArray.append(number)
+//        }
+//    }
+//    print(numberArray.count)
+//}
+//solution()
+
 //과제 안 내신 분..? (5597)
 //import Foundation
 //func solution() {
