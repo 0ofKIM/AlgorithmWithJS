@@ -5,19 +5,34 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 
-//나머지 (3052)
+//공 넣기 (10810)
 import Foundation
 func solution() {
-    var numberArray: [Int] = []
-    (0..<10).forEach { _ in
-        let number = Int(readLine()!)! % 42
-        if !numberArray.contains(number) {
-            numberArray.append(number)
+    let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
+    var basket: [Int] = Array(repeating: 0, count: input[0])
+    (0..<input[1]).forEach { index in
+        let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
+        for index in input[0]...input[1] {
+            basket[index-1] = input[2]
         }
     }
-    print(numberArray.count)
+    print(basket.reduce("") { "\($0)\($1) " })
 }
 solution()
+
+//나머지 (3052)
+//import Foundation
+//func solution() {
+//    var numberArray: [Int] = []
+//    (0..<10).forEach { _ in
+//        let number = Int(readLine()!)! % 42
+//        if !numberArray.contains(number) {
+//            numberArray.append(number)
+//        }
+//    }
+//    print(numberArray.count)
+//}
+//solution()
 
 //과제 안 내신 분..? (5597)
 //import Foundation
