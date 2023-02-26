@@ -5,20 +5,36 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 
-//공 넣기 (10810)
+//공 바꾸기 (10813)
 import Foundation
 func solution() {
     let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
-    var basket: [Int] = Array(repeating: 0, count: input[0])
-    (0..<input[1]).forEach { index in
-        let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
-        for index in input[0]...input[1] {
-            basket[index-1] = input[2]
-        }
+    var basket: [Int] = (1...input[0]).compactMap { Int($0) }
+    (0..<input[1]).forEach { _ in
+        let input = readLine()!.split(separator: " ").compactMap{ Int($0)! - 1 }
+        let temp = basket[input[0]]
+        basket[input[0]] = basket[input[1]]
+        basket[input[1]] = temp
     }
+
     print(basket.reduce("") { "\($0)\($1) " })
 }
 solution()
+
+////공 넣기 (10810)
+//import Foundation
+//func solution() {
+//    let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
+//    var basket: [Int] = Array(repeating: 0, count: input[0])
+//    (0..<input[1]).forEach { index in
+//        let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
+//        for index in input[0]...input[1] {
+//            basket[index-1] = input[2]
+//        }
+//    }
+//    print(basket.reduce("") { "\($0)\($1) " })
+//}
+//solution()
 
 //나머지 (3052)
 //import Foundation
