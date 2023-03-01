@@ -5,21 +5,34 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 
-//공 바꾸기 (10813)
+//바구니 뒤집기 (10811)
 import Foundation
 func solution() {
     let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
     var basket: [Int] = (1...input[0]).compactMap { Int($0) }
     (0..<input[1]).forEach { _ in
         let input = readLine()!.split(separator: " ").compactMap{ Int($0)! - 1 }
-        let temp = basket[input[0]]
-        basket[input[0]] = basket[input[1]]
-        basket[input[1]] = temp
+        basket[input[0]...input[1]].reverse()
     }
-
     print(basket.reduce("") { "\($0)\($1) " })
 }
 solution()
+
+//공 바꾸기 (10813)
+//import Foundation
+//func solution() {
+//    let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
+//    var basket: [Int] = (1...input[0]).compactMap { Int($0) }
+//    (0..<input[1]).forEach { _ in
+//        let input = readLine()!.split(separator: " ").compactMap{ Int($0)! - 1 }
+//        let temp = basket[input[0]]
+//        basket[input[0]] = basket[input[1]]
+//        basket[input[1]] = temp
+//    }
+//
+//    print(basket.reduce("") { "\($0)\($1) " })
+//}
+//solution()
 
 ////공 넣기 (10810)
 //import Foundation
