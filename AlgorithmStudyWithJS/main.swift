@@ -12,6 +12,19 @@ func solution() {
 }
 solution()
 
+//바구니 뒤집기 (10811)
+//import Foundation
+//func solution() {
+//    let input = readLine()!.split(separator: " ").compactMap{ Int($0) }
+//    var basket: [Int] = (1...input[0]).compactMap { Int($0) }
+//    (0..<input[1]).forEach { _ in
+//        let input = readLine()!.split(separator: " ").compactMap{ Int($0)! - 1 }
+//        basket[input[0]...input[1]].reverse()
+//    }
+//    print(basket.reduce("") { "\($0)\($1) " })
+//}
+//solution()
+
 //공 바꾸기 (10813)
 //import Foundation
 //func solution() {
