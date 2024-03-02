@@ -4,13 +4,54 @@
 //
 //  Created by 0ofKim on 2023/02/16.
 //
+import Foundation
+
+//구간 합 구하기(11659)
+func q11659() {
+    var input: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+    let (n,m) = (input[0],input[1])
+    let numbers: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+    var sumNumbers: [Int] = Array(repeating: numbers[0], count: n)
+    
+    for i in 1..<n {
+        sumNumbers[i] = sumNumbers[i-1] + numbers[i]
+    }
+    
+    var result = ""
+    for _ in 0..<m {
+        input = readLine()!.split(separator: " ").map { Int(String($0))! }
+        
+        let high: Int = sumNumbers[input[1]-1]
+        let low: Int = input[0] == 1 ? 0 : sumNumbers[input[0]-2]
+        
+        result += ("\(high - low)\n")
+    }
+    print(result)
+}
+q11659()
+
+//평균 구하기(1546)
+//func q1546() {
+//    let N = Int(readLine()!)!
+//    var numberArray = readLine()!.split(separator: " ").map { Double($0)! }
+//    let max = numberArray.max()!
+//    var num = 0.0
+//    
+//    for i in 0..<N {
+//        numberArray[i] = numberArray[i] / max * 100
+//        num += numberArray[i]
+//    }
+//    
+//    print(num / Double(N))
+//}
+//q1546()
 
 //단어의 개수 (1152)
-import Foundation
-func solution() {
-    print(readLine()!.split(separator: " ").compactMap { $0 }.count)
-}
-solution()
+//import Foundation
+//func solution() {
+//    print(readLine()!.split(separator: " ").compactMap { $0 }.count)
+//}
+//solution()
 
 //바구니 뒤집기 (10811)
 //import Foundation
