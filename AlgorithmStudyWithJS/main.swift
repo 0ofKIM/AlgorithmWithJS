@@ -5,30 +5,63 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 import Foundation
-
-//구간 합 구하기(11659)
-func q11659() {
-    var input: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
-    let (n,m) = (input[0],input[1])
-    let numbers: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
-    var sumNumbers: [Int] = Array(repeating: numbers[0], count: n)
+//좋다(1253)
+func q1253() {
+    let n: Int = Int(readLine()!)!
+    var numberList: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+    numberList.sort()
+    var result: Int = 0
     
-    for i in 1..<n {
-        sumNumbers[i] = sumNumbers[i-1] + numbers[i]
+    for k in 0..<n {
+        var i: Int = 0
+        var j: Int = n - 1
+        let find = numberList[k]
+        
+        while i < j {
+            if numberList[i] + numberList[j] == find {
+                if i != k && j != k {
+                    result += 1
+                    break
+                } else if i == k {
+                    i += 1
+                } else if j == k {
+                    j -= 1
+                }
+            } else if numberList[i] + numberList[j] < find {
+                i += 1
+            } else {
+                j -= 1
+            }
+        }
     }
     
-    var result = ""
-    for _ in 0..<m {
-        input = readLine()!.split(separator: " ").map { Int(String($0))! }
-        
-        let high: Int = sumNumbers[input[1]-1]
-        let low: Int = input[0] == 1 ? 0 : sumNumbers[input[0]-2]
-        
-        result += ("\(high - low)\n")
-    }
     print(result)
 }
-q11659()
+q1253()
+
+//구간 합 구하기(11659)
+//func q11659() {
+//    var input: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+//    let (n,m) = (input[0],input[1])
+//    let numbers: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+//    var sumNumbers: [Int] = Array(repeating: numbers[0], count: n)
+//    
+//    for i in 1..<n {
+//        sumNumbers[i] = sumNumbers[i-1] + numbers[i]
+//    }
+//    
+//    var result = ""
+//    for _ in 0..<m {
+//        input = readLine()!.split(separator: " ").map { Int(String($0))! }
+//        
+//        let high: Int = sumNumbers[input[1]-1]
+//        let low: Int = input[0] == 1 ? 0 : sumNumbers[input[0]-2]
+//        
+//        result += ("\(high - low)\n")
+//    }
+//    print(result)
+//}
+//q11659()
 
 //평균 구하기(1546)
 //func q1546() {
