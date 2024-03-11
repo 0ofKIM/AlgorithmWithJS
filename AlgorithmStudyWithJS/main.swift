@@ -5,39 +5,60 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 import Foundation
-//좋다(1253)
-func q1253() {
-    let n: Int = Int(readLine()!)!
-    var numberList: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
-    numberList.sort()
-    var result: Int = 0
+//오큰수(17298) - 스택
+func q17298() {
+    let N: Int = Int(readLine()!)!
+    var numbers: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+    var stack: [Int] = []
     
-    for k in 0..<n {
-        var i: Int = 0
-        var j: Int = n - 1
-        let find = numberList[k]
-        
-        while i < j {
-            if numberList[i] + numberList[j] == find {
-                if i != k && j != k {
-                    result += 1
-                    break
-                } else if i == k {
-                    i += 1
-                } else if j == k {
-                    j -= 1
-                }
-            } else if numberList[i] + numberList[j] < find {
-                i += 1
-            } else {
-                j -= 1
-            }
+    for n in 0..<N {
+        while !stack.isEmpty && numbers[n] > numbers[stack.last!] {
+            numbers[stack.popLast()!] = numbers[n]
         }
+        stack.append(n)
     }
     
-    print(result)
+    while !stack.isEmpty {
+        numbers[stack.popLast()!] = -1
+    }
+    
+    print(numbers.map { String($0) }.joined(separator: " ") )
 }
-q1253()
+q17298()
+
+//좋다(1253)
+//func q1253() {
+//    let n: Int = Int(readLine()!)!
+//    var numberList: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+//    numberList.sort()
+//    var result: Int = 0
+//    
+//    for k in 0..<n {
+//        var i: Int = 0
+//        var j: Int = n - 1
+//        let find = numberList[k]
+//        
+//        while i < j {
+//            if numberList[i] + numberList[j] == find {
+//                if i != k && j != k {
+//                    result += 1
+//                    break
+//                } else if i == k {
+//                    i += 1
+//                } else if j == k {
+//                    j -= 1
+//                }
+//            } else if numberList[i] + numberList[j] < find {
+//                i += 1
+//            } else {
+//                j -= 1
+//            }
+//        }
+//    }
+//    
+//    print(result)
+//}
+//q1253()
 
 //구간 합 구하기(11659)
 //func q11659() {
