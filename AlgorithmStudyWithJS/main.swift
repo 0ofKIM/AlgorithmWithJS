@@ -5,26 +5,43 @@
 //  Created by 0ofKim on 2023/02/16.
 //
 import Foundation
-//오큰수(17298) - 스택
-func q17298() {
+
+//수 정렬하기(2750) - 정렬
+func q2750() {
     let N: Int = Int(readLine()!)!
-    var numbers: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
-    var stack: [Int] = []
-    
-    for n in 0..<N {
-        while !stack.isEmpty && numbers[n] > numbers[stack.last!] {
-            numbers[stack.popLast()!] = numbers[n]
-        }
-        stack.append(n)
+    var numberList: [Int] = []
+    for _ in 0..<N {
+        let number: Int = Int(readLine()!)!
+        numberList.append(number)
     }
     
-    while !stack.isEmpty {
-        numbers[stack.popLast()!] = -1
+    numberList.sort()
+    for number in numberList {
+        print(number)
     }
-    
-    print(numbers.map { String($0) }.joined(separator: " ") )
 }
-q17298()
+q2750()
+
+//오큰수(17298) - 스택
+//func q17298() {
+//    let N: Int = Int(readLine()!)!
+//    var numbers: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+//    var stack: [Int] = []
+//    
+//    for n in 0..<N {
+//        while !stack.isEmpty && numbers[n] > numbers[stack.last!] {
+//            numbers[stack.popLast()!] = numbers[n]
+//        }
+//        stack.append(n)
+//    }
+//    
+//    while !stack.isEmpty {
+//        numbers[stack.popLast()!] = -1
+//    }
+//    
+//    print(numbers.map { String($0) }.joined(separator: " ") )
+//}
+//q17298()
 
 //좋다(1253)
 //func q1253() {
