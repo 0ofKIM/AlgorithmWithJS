@@ -6,21 +6,46 @@
 //
 import Foundation
 
-//수 정렬하기(2750) - 정렬
-func q2750() {
-    let N: Int = Int(readLine()!)!
-    var numberList: [Int] = []
-    for _ in 0..<N {
-        let number: Int = Int(readLine()!)!
-        numberList.append(number)
+//롤케이크 자르기(프로그래머스)
+func solution(_ topping: [Int]) -> Int {
+    var set: Set = Set<Int>()
+    var dic: [Int:Int] = [:]
+    var result: Int = 0
+    
+    for t in topping {
+        guard let dict = dic[t] else {
+            dic[t] = 1
+            continue
+        }
+        dic[t] = dict + 1
     }
     
-    numberList.sort()
-    for number in numberList {
-        print(number)
+    for t in topping {
+        set.insert(t)
+        dic[t] = dic[t]! - 1
+        
+        if dic[t] == 0 { dic[t] = nil }
+        if dic.count == set.count { result += 1 }
     }
+    
+    return result
 }
-q2750()
+
+//수 정렬하기(2750) - 정렬
+//func q2750() {
+//    let N: Int = Int(readLine()!)!
+//    var numberList: [Int] = []
+//    for _ in 0..<N {
+//        let number: Int = Int(readLine()!)!
+//        numberList.append(number)
+//    }
+//    
+//    numberList.sort()
+//    for number in numberList {
+//        print(number)
+//    }
+//}
+//q2750()
 
 //오큰수(17298) - 스택
 //func q17298() {
