@@ -6,17 +6,29 @@
 //
 import Foundation
 
-//행렬의 덧셈(프로그래머스)
-func solution(_ arr1: [[Int]], _ arr2: [[Int]]) -> [[Int]] {
-    var answer = arr1
-    for (index, row) in arr1.enumerated() {
-        for (index2, value) in row.enumerated() {
-            answer[index][index2] += arr2[index][index2]
-        }
+//직사각형 별찍기
+let n = readLine()!.components(separatedBy: [" "]).map { Int($0)! }
+let (a, b) = (n[0], n[1])
+
+for _ in 0..<b {
+    var star: String = ""
+    for _ in 0..<a {
+        star.append(contentsOf: "*")
     }
-    
-    return answer
+    print(star)
 }
+
+//행렬의 덧셈(프로그래머스)
+//func solution(_ arr1: [[Int]], _ arr2: [[Int]]) -> [[Int]] {
+//    var answer = arr1
+//    for (index, row) in arr1.enumerated() {
+//        for (index2, value) in row.enumerated() {
+//            answer[index][index2] += arr2[index][index2]
+//        }
+//    }
+//    
+//    return answer
+//}
 
 // 부족한 금액 계산하기(프로그래머스)
 //import Foundation
