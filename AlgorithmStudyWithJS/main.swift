@@ -6,20 +6,32 @@
 //
 import Foundation
 
-// 부족한 금액 계산하기(프로그래머스)
-import Foundation
-
-func solution(_ price: Int, _ money: Int, _ count: Int) -> Int64 {
-    var sum: Int = 0
-    var multiCount: Int = 1
-    for i in 0..<count {
-        sum += price * multiCount
-        multiCount += 1
+//행렬의 덧셈(프로그래머스)
+func solution(_ arr1: [[Int]], _ arr2: [[Int]]) -> [[Int]] {
+    var answer = arr1
+    for (index, row) in arr1.enumerated() {
+        for (index2, value) in row.enumerated() {
+            answer[index][index2] += arr2[index][index2]
+        }
     }
-    let answer: Int = (money-sum) <= 0 ? -(money-sum) : 0
     
-    return Int64(answer)
+    return answer
 }
+
+// 부족한 금액 계산하기(프로그래머스)
+//import Foundation
+//
+//func solution(_ price: Int, _ money: Int, _ count: Int) -> Int64 {
+//    var sum: Int = 0
+//    var multiCount: Int = 1
+//    for i in 0..<count {
+//        sum += price * multiCount
+//        multiCount += 1
+//    }
+//    let answer: Int = (money-sum) <= 0 ? -(money-sum) : 0
+//    
+//    return Int64(answer)
+//}
 
 //롤케이크 자르기(프로그래머스)
 //func solution(_ topping: [Int]) -> Int {
