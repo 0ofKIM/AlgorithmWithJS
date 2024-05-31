@@ -6,30 +6,45 @@
 //
 import Foundation
 
-//롤케이크 자르기(프로그래머스)
-func solution(_ topping: [Int]) -> Int {
-    var set: Set = Set<Int>()
-    var dic: [Int:Int] = [:]
-    var result: Int = 0
-    
-    for t in topping {
-        guard let dict = dic[t] else {
-            dic[t] = 1
-            continue
-        }
-        dic[t] = dict + 1
+// 부족한 금액 계산하기(프로그래머스)
+import Foundation
+
+func solution(_ price: Int, _ money: Int, _ count: Int) -> Int64 {
+    var sum: Int = 0
+    var multiCount: Int = 1
+    for i in 0..<count {
+        sum += price * multiCount
+        multiCount += 1
     }
+    let answer: Int = (money-sum) <= 0 ? -(money-sum) : 0
     
-    for t in topping {
-        set.insert(t)
-        dic[t] = dic[t]! - 1
-        
-        if dic[t] == 0 { dic[t] = nil }
-        if dic.count == set.count { result += 1 }
-    }
-    
-    return result
+    return Int64(answer)
 }
+
+//롤케이크 자르기(프로그래머스)
+//func solution(_ topping: [Int]) -> Int {
+//    var set: Set = Set<Int>()
+//    var dic: [Int:Int] = [:]
+//    var result: Int = 0
+//    
+//    for t in topping {
+//        guard let dict = dic[t] else {
+//            dic[t] = 1
+//            continue
+//        }
+//        dic[t] = dict + 1
+//    }
+//    
+//    for t in topping {
+//        set.insert(t)
+//        dic[t] = dic[t]! - 1
+//        
+//        if dic[t] == 0 { dic[t] = nil }
+//        if dic.count == set.count { result += 1 }
+//    }
+//    
+//    return result
+//}
 
 //수 정렬하기(2750) - 정렬
 //func q2750() {
