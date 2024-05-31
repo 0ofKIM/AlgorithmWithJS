@@ -6,17 +6,34 @@
 //
 import Foundation
 
-//직사각형 별찍기
-let n = readLine()!.components(separatedBy: [" "]).map { Int($0)! }
-let (a, b) = (n[0], n[1])
-
-for _ in 0..<b {
-    var star: String = ""
-    for _ in 0..<a {
-        star.append(contentsOf: "*")
-    }
-    print(star)
+//최대공약수와 최소공배수
+func solution(_ n: Int, _ m: Int) -> [Int] {
+    return [gcd(n,m), lcm(n,m)]
 }
+
+func gcd(_ n: Int, _ m: Int) -> Int {
+    if m == 0 {
+        return n
+    } else {
+        return gcd(m, n % m)
+    }
+}
+
+func lcm(_ n: Int, _ m: Int) -> Int {
+    return n*m/gcd(n, m)
+}
+
+//직사각형 별찍기
+//let n = readLine()!.components(separatedBy: [" "]).map { Int($0)! }
+//let (a, b) = (n[0], n[1])
+//
+//for _ in 0..<b {
+//    var star: String = ""
+//    for _ in 0..<a {
+//        star.append(contentsOf: "*")
+//    }
+//    print(star)
+//}
 
 //행렬의 덧셈(프로그래머스)
 //func solution(_ arr1: [[Int]], _ arr2: [[Int]]) -> [[Int]] {
