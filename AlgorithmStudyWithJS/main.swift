@@ -6,22 +6,27 @@
 //
 import Foundation
 
+//3진법 뒤집기
+func solution(_ n: Int) -> Int {
+    return Int(String(String(n, radix: 3).reversed()), radix: 3)!
+}
+
 //최대공약수와 최소공배수
-func solution(_ n: Int, _ m: Int) -> [Int] {
-    return [gcd(n,m), lcm(n,m)]
-}
-
-func gcd(_ n: Int, _ m: Int) -> Int {
-    if m == 0 {
-        return n
-    } else {
-        return gcd(m, n % m)
-    }
-}
-
-func lcm(_ n: Int, _ m: Int) -> Int {
-    return n*m/gcd(n, m)
-}
+//func solution(_ n: Int, _ m: Int) -> [Int] {
+//    return [gcd(n,m), lcm(n,m)]
+//}
+//
+//func gcd(_ n: Int, _ m: Int) -> Int {
+//    if m == 0 {
+//        return n
+//    } else {
+//        return gcd(m, n % m)
+//    }
+//}
+//
+//func lcm(_ n: Int, _ m: Int) -> Int {
+//    return n*m/gcd(n, m)
+//}
 
 //직사각형 별찍기
 //let n = readLine()!.components(separatedBy: [" "]).map { Int($0)! }
