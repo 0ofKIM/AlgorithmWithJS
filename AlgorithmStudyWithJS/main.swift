@@ -6,6 +6,25 @@
 //
 import Foundation
 
+//이상한 문자 만들기
+func solution(_ s:String) -> String {
+    var isOdd: Bool = true
+    var result: String = ""
+    
+    for alphabet in s {
+        guard alphabet != " " else {
+            result.append(contentsOf: " ")
+            isOdd = true
+            continue
+        }
+        
+        result.append(contentsOf: isOdd ? String(alphabet).uppercased() : String(alphabet).lowercased())
+        isOdd.toggle()
+    }
+    
+    return result
+}
+
 //크기가 작은 부분문자열
 //func solution(_ t: String, _ p: String) -> Int {
 //    var resultCount: Int = 0
