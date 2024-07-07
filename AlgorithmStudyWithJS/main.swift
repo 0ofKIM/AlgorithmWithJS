@@ -6,10 +6,23 @@
 //
 import Foundation
 
+//크기가 작은 부분문자열
+//func solution(_ t: String, _ p: String) -> Int {
+//    var resultCount: Int = 0
+//    
+//    for i in 0..<t.count where i+p.count <= t.count {
+//        if Int(p)! >= Int(t.map { $0 }[i..<i+p.count].reduce("") { "\($0)\($1)" })! {
+//            resultCount += 1
+//        }
+//    }
+//    
+//    return resultCount
+//}
+
 //3진법 뒤집기
-func solution(_ n: Int) -> Int {
-    return Int(String(String(n, radix: 3).reversed()), radix: 3)!
-}
+//func solution(_ n: Int) -> Int {
+//    return Int(String(String(n, radix: 3).reversed()), radix: 3)!
+//}
 
 //최대공약수와 최소공배수
 //func solution(_ n: Int, _ m: Int) -> [Int] {
