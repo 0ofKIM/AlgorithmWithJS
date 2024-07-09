@@ -6,24 +6,39 @@
 //
 import Foundation
 
-//이상한 문자 만들기
-func solution(_ s:String) -> String {
-    var isOdd: Bool = true
-    var result: String = ""
+//삼총사
+func solution(_ number: [Int]) -> Int {
+    var result: Int = 0
     
-    for alphabet in s {
-        guard alphabet != " " else {
-            result.append(contentsOf: " ")
-            isOdd = true
-            continue
+    for i in 0..<number.count {
+        for j in i+1..<number.count {
+            for x in j+1..<number.count {
+                if number[i]+number[j]+number[x] == 0 { result += 1 }
+            }
         }
-        
-        result.append(contentsOf: isOdd ? String(alphabet).uppercased() : String(alphabet).lowercased())
-        isOdd.toggle()
     }
     
     return result
 }
+
+//이상한 문자 만들기
+//func solution(_ s:String) -> String {
+//    var isOdd: Bool = true
+//    var result: String = ""
+//    
+//    for alphabet in s {
+//        guard alphabet != " " else {
+//            result.append(contentsOf: " ")
+//            isOdd = true
+//            continue
+//        }
+//        
+//        result.append(contentsOf: isOdd ? String(alphabet).uppercased() : String(alphabet).lowercased())
+//        isOdd.toggle()
+//    }
+//    
+//    return result
+//}
 
 //크기가 작은 부분문자열
 //func solution(_ t: String, _ p: String) -> Int {
