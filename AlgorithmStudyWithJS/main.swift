@@ -6,19 +6,20 @@
 //
 import Foundation
 
-//삼총사
-func solution(_ number: [Int]) -> Int {
-    var result: Int = 0
+//최소 직사각형
+func solution(_ sizes: [[Int]]) -> Int {
+    var max: Int = 0
+    var min: Int = 0
     
-    for i in 0..<number.count {
-        for j in i+1..<number.count {
-            for x in j+1..<number.count {
-                if number[i]+number[j]+number[x] == 0 { result += 1 }
-            }
-        }
+    for size in sizes {
+        let bigger = size.max()!
+        let smaller = size.min()!
+        
+        max = max > bigger ? max : bigger
+        min = min > smaller ? min : smaller
     }
     
-    return result
+    return max*min
 }
 
 //이상한 문자 만들기
